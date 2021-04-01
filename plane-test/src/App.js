@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.canvasWidth = 900;
+    this.canvasHeight = 900;
+    this.gridHeight = this.canvasHeight / 20;
+    this.gridWidth = this.canvasWidth / 20;
+  }
+
+  render() {
+    return (
+      <div id="coordPlane">
+        <svg width={this.canvasWidth} height={this.canvasHeight}>
+          <g>
+            <line
+              x1={0}
+              y1={0}
+              x2={this.canvasWidth}
+              y2={this.canvasHeight}
+              stroke={"black"}
+            />
+          </g>
+        </svg>
+      </div>
+    );
+  }
 }
 
 export default App;
